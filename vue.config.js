@@ -6,7 +6,7 @@ function resolve(dir) {
   return path.join(__dirname, dir)
 }
 
-const name = defaultSettings.title || 'vue Admin Template' // page title
+const name = defaultSettings.title || 'crawler-monitor' // page title
 
 // If your port is set to 80,
 // use administrator privileges to execute the command line.
@@ -30,6 +30,19 @@ module.exports = {
   lintOnSave: process.env.NODE_ENV === 'development',
   productionSourceMap: false,
   devServer: {
+    disableHostCheck: true,
+    proxy: {
+      '/api': {
+        target: 'http://127.0.0.1:8000',
+        ws: true,
+        changeOrigin: true
+      },
+      '/admin': {
+        target: 'http://127.0.0.1:8000',
+        ws: true,
+        changeOrigin: true
+      }
+    },
     port: port,
     open: true,
     overlay: {
@@ -87,7 +100,7 @@ module.exports = {
             .plugin('ScriptExtHtmlWebpackPlugin')
             .after('html')
             .use('script-ext-html-webpack-plugin', [{
-            // `runtime` must same as runtimeChunk name. default is `runtime`
+              // `runtime` must same as runtimeChunk name. default is `runtime`
               inline: /runtime\..*\.js$/
             }])
             .end()
