@@ -16,6 +16,14 @@ export function download(id, flag) {
   })
 }
 
+export function execute(id) {
+  return request({
+    url: `/api/cbrcdoc/execute/${id}/`,
+    method: 'post',
+  })
+}
+
+
 export function receivers(receiver_data) {
   return request({
     url: '/api/cbrcdoc/receivers/',
