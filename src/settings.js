@@ -1,6 +1,6 @@
 module.exports = {
 
-  title: '苏州银保荐信息收集系统',
+  title: '苏州银保监信息收集系统',
 
   /**
    * @type {boolean} true | false

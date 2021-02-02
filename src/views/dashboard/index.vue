@@ -203,11 +203,11 @@ import { mapGetters } from "vuex";
 export default {
   filters: {
     statusFilter(status) {
-      const statusMap = ["gray", "danger", "success"];
+      const statusMap = ["gray", "danger", "success","unknow","warning"];
       return statusMap[status];
     },
     statusConvert(status) {
-      const statusMap = ["运行中", "有异常", "已完成"];
+      const statusMap = ["运行中", "有异常", "已完成","unknow","已停用"];
       return statusMap[status];
     },
   },
